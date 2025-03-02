@@ -1,0 +1,583 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode {
+  background-color: #181818;
+  color: #f4f4f4;
+}
+
+/* Centering the main container */
+.app {
+  width: min(95%, 600px);
+  margin: 2rem auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dark-mode .app {
+  background-color: #252525;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.dark-mode h1 {
+  color: #f4f4f4;
+}
+
+/* Task Form */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  width: 100%;
+}
+
+.task-form input,
+.task-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  color: #333;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.task-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.task-form button {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Task Filters */
+.task-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.task-filters button {
+  flex: 1;
+  min-width: 100px;
+  max-width: 150px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-filters button:hover {
+  background-color: #0056b3;
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Task Item */
+.task-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .task-item {
+  background-color: #2d2d2d;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.task-content h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.task-content p {
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.6;
+  color: #666;
+}
+
+.dark-mode .task-content h3 {
+  color: #fff;
+}
+
+.dark-mode .task-content p {
+  color: #bbb;
+}
+
+.task-content input,
+.task-content textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95em;
+  background-color: white;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.dark-mode .task-content input,
+.dark-mode .task-content textarea {
+  background-color: #333;
+  border-color: #444;
+  color: #fff;
+}
+
+/* Task Controls */
+.task-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.task-controls button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  min-width: 80px;
+  border-radius: 6px;
+}
+
+/* Timer Container */
+.task-pomodoro {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  min-width: 160px;
+  justify-content: center;
+}
+
+.task-pomodoro.break-mode {
+  background-color: #e8f5e9;
+  border-color: #c8e6c9;
+}
+
+.dark-mode .task-pomodoro {
+  background-color: #333;
+  border-color: #444;
+}
+
+.task-pomodoro span {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-width: 70px;
+  text-align: center;
+}
+
+.dark-mode .task-pomodoro span {
+  color: #fff;
+}
+
+.dark-mode .task-pomodoro.break-mode {
+  background-color: #1b5e20;
+  border-color: #2e7d32;
+}
+
+.dark-mode .task-pomodoro.break-mode span {
+  color: #fff;
+}
+
+.break-indicator {
+  font-size: 0.9em;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.task-pomodoro button.timer-control {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  border: 1.5px solid rgba(150, 150, 150, 0.2);
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.break-mode .task-pomodoro button.timer-control {
+  border-color: rgba(165, 214, 167, 0.3);
+  color: #2e7d32;
+}
+
+.task-pomodoro button.timer-control:hover {
+  background: rgba(150, 150, 150, 0.1) !important;
+  border-color: rgba(150, 150, 150, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.break-mode .task-pomodoro button.timer-control:hover {
+  background: rgba(165, 214, 167, 0.1) !important;
+  border-color: rgba(165, 214, 167, 0.4);
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.1);
+}
+
+.dark-mode .task-pomodoro button.timer-control {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #aaa;
+}
+
+.dark-mode .break-mode .task-pomodoro button.timer-control {
+  border-color: rgba(165, 214, 167, 0.3);
+  color: #a5d6a7;
+}
+
+.dark-mode .task-pomodoro button.timer-control:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .break-mode .task-pomodoro button.timer-control:hover {
+  background: rgba(165, 214, 167, 0.1) !important;
+  border-color: rgba(165, 214, 167, 0.4);
+  box-shadow: 0 2px 8px rgba(165, 214, 167, 0.1);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Task Status */
+.task-item button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.task-item button:nth-child(1) {
+  background-color: #28a745; /* Green for completed */
+  color: white;
+}
+
+.task-item button:nth-child(1):hover {
+  background-color: #218838;
+}
+
+.task-item button:nth-child(2) {
+  background-color: #ffc107; /* Yellow for edit */
+  color: black;
+}
+
+.task-item button:nth-child(2):hover {
+  background-color: #e0a800;
+}
+
+.task-item button:nth-child(3) {
+  background-color: #dc3545; /* Red for delete */
+  color: white;
+}
+
+.task-item button:nth-child(3):hover {
+  background-color: #c82333;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  margin: 1rem 0;
+}
+
+.theme-toggle button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  min-width: 120px;
+  border-radius: 6px;
+}
+
+/* Dark Mode Overrides */
+.dark-mode .theme-toggle button {
+  background-color: #2196F3;
+}
+
+.dark-mode .theme-toggle button:hover {
+  background-color: #1976D2;
+}
+
+.completed-task {
+  background-color: #f8f9fa;
+  opacity: 0.9;
+}
+
+.dark-mode .completed-task {
+  background-color: #252525;
+  opacity: 0.8;
+}
+
+.task-completed-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: #e8f5e9;
+  border-radius: 8px;
+  border: 1px solid #c8e6c9;
+  min-width: 160px;
+  justify-content: center;
+}
+
+.dark-mode .task-completed-indicator {
+  background-color: #1b5e20;
+  border-color: #2e7d32;
+}
+
+.task-completed-indicator span {
+  font-size: 1.2em;
+}
+
+.completed-time {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.dark-mode .completed-time {
+  color: #81c784;
+}
+
+.completed-task .task-content h3,
+.completed-task .task-content p {
+  color: #888;
+}
+
+.dark-mode .completed-task .task-content h3,
+.dark-mode .completed-task .task-content p {
+  color: #888;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .app {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  .task-item {
+    grid-template-columns: 1fr;
+  }
+
+  .task-pomodoro,
+  .task-completed-indicator {
+    justify-self: center;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .task-controls {
+    flex-wrap: wrap;
+  }
+
+  .task-controls button {
+    flex: 1;
+    min-width: 100px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .app {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  .task-form {
+    margin-bottom: 1rem;
+  }
+
+  .task-form textarea {
+    min-height: 80px;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  .task-filters {
+    margin-bottom: 1rem;
+  }
+
+  .task-list {
+    gap: 0.75rem;
+  }
+
+  .task-filters button {
+    min-width: 80px;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .task-item {
+    padding: 0.75rem;
+    gap: 1rem;
+  }
+
+  .task-controls button {
+    min-width: 70px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .task-pomodoro button.timer-control {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .task-pomodoro,
+  .task-completed-indicator {
+    padding: 0.75rem;
+  }
+}
+
+/* Hover Effects for Touch Devices */
+@media (hover: none) {
+  .task-item:hover {
+    transform: none;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .task-controls button:hover,
+  .task-pomodoro button:hover {
+    opacity: 0.8;
+  }
+}
+
+/* Landscape Mode */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+  .app {
+    margin: 5px auto;
+  }
+
+  .task-list {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+
+  .task-list::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .task-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+
+  .task-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .dark-mode .task-list::-webkit-scrollbar-thumb {
+    background: #555;
+  }
+
+  .dark-mode .task-list::-webkit-scrollbar-track {
+    background: #333;
+  }
+}
+
+/* Task Form */
+.dark-mode .task-form input,
+.dark-mode .task-form textarea,
+.dark-mode .task-input input {
+  background-color: #333;
+  border-color: #444;
+  color: #fff;
+}
+
