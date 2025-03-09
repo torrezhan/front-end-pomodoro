@@ -8,7 +8,6 @@ const PomodoroTimer = ({ taskId }) => {
     const [isRunning, setIsRunning] = useState(false);
     const [isBreak, setIsBreak] = useState(false);
 
-    // Create audio elements using useRef
     const workCompleteSound = useRef(new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg'));
     const breakCompleteSound = useRef(new Audio('https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg'));
 
@@ -27,12 +26,10 @@ const PomodoroTimer = ({ taskId }) => {
     useEffect(() => {
         if (time === 0) {
             if (isBreak) {
-                // Break time finished
                 breakCompleteSound.current.play();
                 setIsBreak(false);
                 setTime(WORK_TIME);
             } else {
-                // Work time finished
                 workCompleteSound.current.play();
                 setIsBreak(true);
                 setTime(BREAK_TIME);
